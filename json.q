@@ -25,7 +25,7 @@ jsonFuncs.list:{
  "[ ",(", " sv @[r;nullx;:;(count nullx:where null x)#enlist "null"])," ]" / We want to replace occurences of null atoms with the JSON keyword "null"
  }
 
-jsonFuncs.genList:{"[ ", (", " sv $[genListCharTest x;jsonFuncs.jsonT[;0b];jsonFuncs.jsonT[;1b]] each x), " ]"}
+jsonFuncs.genList:{"[ ", (", " sv $[jsonFuncs.genListCharTest x;jsonFuncs.jsonT[;0b];jsonFuncs.jsonT[;1b]] each x), " ]"}
 jsonFuncs.genListCharTest:{(not all 10h = type each x) and all 0h < type each x} / if the list is a list of simple lists and not all the lists are string lists
 
 jsonFuncs.forceString:{"\"",' (string x),' "\""} / Keys *have* to be strings in JSON
@@ -67,5 +67,5 @@ json:{
 \d .
 
 .h.ty[`jsn]:"application/json"
-.h.tx[`jsn]:{enlist .utl.jsonFuncs.json x}
+.h.tx[`jsn]:{enlist .utl.json x}
 
