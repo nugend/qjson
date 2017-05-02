@@ -39,7 +39,7 @@ jsonFuncs.jsonT:{[x;charListAsAtom]; / Sometimes character lists should be strin
  $[ 0 > type x;
   jsonFuncs.atom[x];
   charListAsAtom and 10h = type x;
-  "\"",x,"\"";
+  "\"",ssr[x;"\"";"\\\""],"\"";
   (type x) within 1 19h;
   jsonFuncs.list[x];
   (type x) within 20 73h; / TODO:Figure out the highest enumeration type again
