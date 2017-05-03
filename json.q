@@ -9,7 +9,7 @@ jsonFuncs.atom:{
   $[x;"true";"false"]; / JSON has specific keywords for true and false
   (type x) in neg 5 6 7 8 9h;
   $[.utl.inf x;$[x < 0;"-inf";"inf"];string x];
-  "\"",(string x),"\""
+  "\"",ssr[string[x];"\"";"\\\""],"\""
   ]
  }
 
