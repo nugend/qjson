@@ -9,7 +9,7 @@ jsonFuncs.atom:{
   $[x;"true";"false"]; / JSON has specific keywords for true and false
   (type x) in neg 5 6 7 8 9h;
   $[.utl.inf x;$[x < 0;"-inf";"inf"];string x];
-  "\"",(string x),"\""
+  "\"",ssr[string[x];"\"";"\\\""],"\""
   ]
  }
 
@@ -39,7 +39,7 @@ jsonFuncs.jsonT:{[x;charListAsAtom]; / Sometimes character lists should be strin
  $[ 0 > type x;
   jsonFuncs.atom[x];
   charListAsAtom and 10h = type x;
-  "\"",x,"\"";
+  "\"",ssr[x;"\"";"\\\""],"\"";
   (type x) within 1 19h;
   jsonFuncs.list[x];
   (type x) within 20 73h; / TODO:Figure out the highest enumeration type again
